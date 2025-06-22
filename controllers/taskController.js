@@ -299,7 +299,7 @@ const getUserDashboardData = async(req, res) => {
         }, {});
 
         // Fetch recent 10 tasks
-        const recentTasks = await Task.find({ assignedTo: userId }).sort({createdAt: -1}).limit(10).select("title status priority, dueDate createdAt");
+        const recentTasks = await Task.find({ assignedTo: userId }).sort({createdAt: -1}).limit(10).select("title status priority dueDate createdAt");
 
         res.status(200).json({
             statistics: {totalTask, pendingTask, completedTask, overdueTask},
